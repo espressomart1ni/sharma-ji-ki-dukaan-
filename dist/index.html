@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 <title>Sharma Ji ki Dukaan</title>
-  <script type="module" crossorigin src="./assets/index-DVjDTCQl.js"></script>
+  <script type="module" crossorigin src="./assets/index-CbcRGEZY.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-CIQnK3a3.css">
 </head>
 <body>
@@ -30,13 +30,19 @@
   <canvas id="ss"></canvas>
 </div></div>
 <script>
-setTimeout(function () {
-  if (window.__shopBooted) return;
-  var d = document.createElement('div');
-  d.style.cssText = 'position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#1c1410;color:#f3e3b8;font:16px/1.5 system-ui;padding:24px;text-align:center;z-index:99';
-  d.innerHTML = '<div>The shop script did not start.<br>If this is GitHub Pages: Settings → Pages → Source must be “GitHub Actions” (the built <b>dist</b> folder), not “Deploy from a branch”.<br>Open the browser console (F12) for the exact error.</div>';
-  document.body.appendChild(d);
-}, 6000);
+(function () {
+  var errs = [];
+  addEventListener('error', function (e) { var t = e.target; errs.push(t && t.src ? 'FAILED TO LOAD: ' + t.src : (e.message || 'error') + (e.filename ? ' @ ' + e.filename + ':' + e.lineno : '')); }, true);
+  addEventListener('unhandledrejection', function (e) { errs.push('Promise: ' + ((e.reason && e.reason.message) || e.reason)); });
+  setTimeout(function () {
+    if (window.__shopBooted) return;
+    var d = document.createElement('div');
+    d.style.cssText = 'position:fixed;inset:0;overflow:auto;display:flex;align-items:center;justify-content:center;background:#1c1410;color:#f3e3b8;font:15px/1.5 system-ui;padding:24px;text-align:center;z-index:200';
+    var el = document.querySelector('script[type=module]');
+    d.innerHTML = '<div style="max-width:760px"><b>The shop script did not start.</b><p>Page: ' + location.href + '<br>Script tag: ' + (el ? el.getAttribute('src') : 'none') + '</p><p style="font:13px monospace;text-align:left;white-space:pre-wrap;background:#0006;padding:10px;border-radius:8px">' + (errs.join('\n') || 'No error captured (check the Network tab for red rows).').replace(/</g, '&lt;') + '</p><p>If the script tag says <b>./src/main.js</b>, the site is serving source instead of the built <b>dist</b>: Settings → Pages → Source must be “GitHub Actions”.</p></div>';
+    document.body.appendChild(d);
+  }, 6000);
+})();
 </script>
 </body>
 </html>
