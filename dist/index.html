@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>Sharma Ji ki Dukaan</title>
+  <script type="module" crossorigin src="./assets/index-DVjDTCQl.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CIQnK3a3.css">
+</head>
+<body>
+<canvas id="app"></canvas>
+<div id="reticle"></div>
+<div id="target"></div>
+<div id="toast"></div>
+<div id="finds"></div>
+<div id="bar"></div>
+<div id="start"><div class="card">
+  <h1>Sharma Ji ki Dukaan</h1>
+  <p id="startmsg">You’re wearing the glasses. The shop is open. Step inside.</p>
+  <button id="go">Click to put them on</button>
+  <ul class="keys"><li><b>W A S D</b> walk · <b>Shift</b> run · <b>mouse</b> look</li><li><b>E / click</b> pick up or use · <b>F</b> inspect closely</li><li><b>1 2</b> use the held item · <b>Q</b> put it back · <b>Esc</b> pause</li></ul>
+</div></div>
+<div id="dlg" class="card"><b>Sharma uncle</b><div id="dt"></div><div id="dc"></div></div>
+<div id="joy"><i></i></div>
+<div id="pc"><div id="scr">
+  <div id="boot"></div><div id="dsk"></div>
+  <div id="win" class="w95"><div class="tb"><span id="wt"></span><b id="wx">×</b></div><div id="wb"></div></div>
+  <div id="menu" class="w95"><div id="sd">Shut Down…</div></div>
+  <div id="task" class="w95"><button id="st">Start</button><span id="clk"></span></div>
+  <canvas id="ss"></canvas>
+</div></div>
+<script>
+setTimeout(function () {
+  if (window.__shopBooted) return;
+  var d = document.createElement('div');
+  d.style.cssText = 'position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#1c1410;color:#f3e3b8;font:16px/1.5 system-ui;padding:24px;text-align:center;z-index:99';
+  d.innerHTML = '<div>The shop script did not start.<br>If this is GitHub Pages: Settings → Pages → Source must be “GitHub Actions” (the built <b>dist</b> folder), not “Deploy from a branch”.<br>Open the browser console (F12) for the exact error.</div>';
+  document.body.appendChild(d);
+}, 6000);
+</script>
+</body>
+</html>
